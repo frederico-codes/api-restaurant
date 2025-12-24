@@ -12,7 +12,7 @@ class OrdersController {
                 quantity: z.number(),
             })
         
-            const { table_session_id,product_id,quantity} = bodySchema.parse(request.body)
+            const { table_session_id,product_id,quantity } = bodySchema.parse(request.body)
 
             const session =await knex<TablesSessionsRepository>("tables_sessions")
             .where({id:table_session_id})     
@@ -60,7 +60,7 @@ class OrdersController {
             .select(
                 "orders.id",
                 "orders.table_session_id",
-                 "orders.product_id",
+                "orders.product_id",
                 "products.name",
                 "orders.price",
                 "orders.quantity",
